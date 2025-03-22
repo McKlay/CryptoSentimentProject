@@ -1,64 +1,98 @@
+# 🚀 CryptoSentimentProject
 
-📁 Project Folder Structure
+An AI-powered platform for **real-time sentiment analysis** and **price prediction** in the cryptocurrency market. This end-to-end system gathers live data from Twitter, Reddit, and financial news APIs, processes sentiment using transformer models like **FinBERT**, and forecasts crypto prices using deep learning models. Results are visualized through an interactive **ReactJS dashboard**, backed by a **FastAPI** RESTful server.
+
+---
+
+## 📁 Project Folder Structure
+
+```
 CryptoSentimentProject/
-│
-├── cryptoenv/                 
-├── data/                      
-├── data_collection/           
-├── frontend/                  
-├── models/                    
-├── notebooks/                 
-├── prediction_model/          
-├── scripts/                   
-├── sentiment_analysis/        
-│   ├── finbert_model.py       
-│   ├── preprocess.py          
-│   └── sentiment_utils.py     
-├── app.py                     
-├── .env                       
-├── requirements.txt           
-└── README.md  
+├── cryptoenv/                 # Virtual environment (ignored by Git)
+├── data/                      # Cleaned datasets for ML and dashboards
+├── data_collection/           # Scripts to gather raw data (Twitter, Reddit, News)
+├── frontend/                  # ReactJS dashboard for UI
+├── models/                    # Trained model weights and checkpoints
+├── notebooks/                 # Jupyter notebooks for exploration and prototyping
+├── prediction_model/          # Scripts for training and predicting prices
+├── scripts/                   # Automation scripts (preprocessing, scheduling)
+├── sentiment_analysis/        # Core sentiment pipeline logic
+│   ├── finbert_model.py       # Load and run FinBERT/StockBERT models
+│   ├── preprocess.py          # Text cleaning and tokenization
+│   └── sentiment_utils.py     # Utilities for scoring and results formatting
+├── app.py                     # FastAPI backend entry point
+├── .env                       # Environment variables (API keys, secrets)
+├── requirements.txt           # Python dependencies list
+└── README.md                  # Project documentation
+```
 
-🔹 cryptoenv/
-Contains the virtual environment configuration. This directory holds all Python environment dependencies and packages installed in isolation for this project.
+---
 
-🔹 data/
-Stores processed datasets used for training and inference. This includes cleaned, structured, and final datasets ready for machine learning workflows and dashboards.
+## 🛠 Technologies Used
 
-🔹 data_collection/
-Contains scripts and files for gathering raw data from various sources such as Twitter, Reddit, and financial news outlets. It serves as the staging area for unprocessed, real-time data used in analysis and model training.
+- **Python**, **FastAPI**, **ReactJS**
+- **Transformers** (FinBERT/StockBERT)
+- **TensorFlow/Keras** for price prediction
+- **Pandas, NumPy, NLTK** for data cleaning
+- **Docker** and **GitHub Actions** (future enhancement)
+- **Jupyter Notebooks** for experimentation
 
-🔹 frontend/
-Houses the ReactJS-based dashboard for visualizing real-time sentiment analysis and market predictions. This is the UI layer that communicates with the FastAPI backend via RESTful APIs.
+---
 
-🔹 models/
-Contains trained model artifacts, weights, and checkpoint files. These are the outputs of model training sessions and are used for inference during predictions.
+## ⚙️ Setup Instructions
 
-🔹 notebooks/
-Includes Jupyter notebooks used for data exploration, visualization, experimentation, and prototyping machine learning models. Ideal for testing out features before integrating them into production scripts.
+1. **Clone the repository**
+```bash
+git clone https://github.com/McKlay/CryptoSentimentProject.git
+cd CryptoSentimentProject
+```
 
-🔹 prediction_model/
-Contains Python scripts that define and manage the deep learning architecture used for stock or crypto price prediction. These scripts are modularized for easy training, testing, and deployment.
+2. **Set up the virtual environment**
+```bash
+python -m venv cryptoenv
+source cryptoenv/bin/activate   # On Windows: cryptoenv\Scripts\activate
+pip install -r requirements.txt
+```
 
-🔹 scripts/
-Includes automation scripts for data ingestion, data cleaning, preprocessing, scheduling tasks, or other workflow utilities. This is where reusable or scheduled processing logic resides.
+3. **Configure your `.env` file**
+```
+TWITTER_API_KEY=your_key_here
+REDDIT_CLIENT_ID=your_id
+REDDIT_SECRET=your_secret
+NEWS_API_KEY=your_key_here
+```
 
-🔹 sentiment_analysis/
-This directory holds the core logic for the sentiment analysis pipeline. It integrates pre-trained models (like FinBERT or StockBERT) and text processing utilities for analyzing sentiment from textual data.
+4. **Run the backend**
+```bash
+uvicorn app:app --reload
+```
 
-finbert_model.py: Handles loading and inference using FinBERT or similar transformer-based sentiment models.
-preprocess.py: Provides text cleaning, tokenization, and normalization functions required before passing text to sentiment models.
-sentiment_utils.py: Contains helper functions for scoring, formatting, and evaluating sentiment outputs.
-🔹 app.py
-The main FastAPI backend entry point. It exposes APIs for sentiment analysis and prediction functionalities, connecting the machine learning models to the frontend or any external service.
+5. **Start the frontend**
+```bash
+cd frontend
+npm install
+npm start
+```
 
-🔹 .env
-A secure file used to store environment variables such as API keys, database URIs, and secret credentials. Not to be tracked by version control.
+---
 
-🔹 requirements.txt
-Lists all the required Python libraries and packages needed to run the project. This file can be used to set up the environment via pip install -r requirements.txt.
+## 📈 API Endpoints
 
-🔹 README.md
-You’re reading it! This file provides a comprehensive overview of the project, setup instructions, usage guidelines, and folder structure documentation.
+| Endpoint             | Method | Description                          |
+|----------------------|--------|--------------------------------------|
+| `/analyze_sentiment` | POST   | Analyze text sentiment               |
+| `/predict_price`     | POST   | Predict future price for a token     |
+| `/get_trends`        | GET    | Historical sentiment trend data      |
 
+---
 
+## 🙌 Author
+
+**Clay Mark Sarte** — [LinkedIn](https://linkedin.com/in/your-profile)  
+Feel free to connect and discuss AI, ML, crypto, or cool startup ideas!
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
