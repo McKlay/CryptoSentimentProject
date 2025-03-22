@@ -88,7 +88,7 @@ npm start
 
 ## 🙌 Author
 
-**Clay Mark Sarte** — [LinkedIn](https://linkedin.com/in/your-profile)  
+**Clay Mark Sarte** — [LinkedIn](https://www.linkedin.com/in/clay-mark-sarte-283855147/)  
 Feel free to connect and discuss AI, ML, crypto, or cool startup ideas!
 
 ---
