@@ -1,4 +1,5 @@
-cryptoenv/ 
-__pycache__/ 
-*.pyc 
-*.ipynb_checkpoints 
+cryptoenv/
+__pycache__/
+*.pyc
+*.pkl
+*.ipynb_checkpoints
